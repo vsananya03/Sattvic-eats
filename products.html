@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Products | Sattvic Eats</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="index.html" class="logo">
+
+<img src="images/logo.jpg" alt="Sattvic Eats">
+
+</a>
+
+<div class="menu-toggle" id="menu-toggle">
+
+<i class="fas fa-bars"></i>
+
+</div>
+
+<ul class="nav-links" id="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="products.html" class="active">Products</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li>
+
+<a href="cart.html">
+
+🛒 Cart (<span id="cart-count">0</span>)
+
+</a>
+
+</li>
+
+<li>
+
+<a href="products.html" class="gold-btn">
+
+Shop Now
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</header>
+
+<!-- ================= PAGE TITLE ================= -->
+
+<section class="section products-banner" style="margin-top:70px;">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>Our Products</h2>
+
+<p>
+
+Carefully selected natural foods for a healthier lifestyle.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= COFFEE ================= -->
+
+<section class="section light" id="coffee">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>Coffee Collection</h2>
+
+</div>
+
+<div class="products-grid">
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="images/coffee.jpg" alt="Coffee">
+
+</div>
+
+<div class="product-info">
+
+<span class="product-tag">BEST SELLER</span>
+
+<h3>Arabica Coffee Powder</h3>
+
+<p>
+
+Freshly roasted premium coffee with rich aroma and authentic taste.
+
+</p>
+
+<div class="price">
+
+₹350
+
+</div>
+
+<button
+
+class="gold-btn"
+
+onclick="addToCart('Arabica Coffee Powder',350,'images/coffee.jpg')">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= DRY FRUITS ================= -->
+
+<section class="section" id="dryfruits">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>Premium Dry Fruits</h2>
+
+</div>
+
+<div class="products-grid">
+
+<!-- Almond -->
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="images/almond.jpg">
+
+</div>
+
+<div class="product-info">
+
+<h3>Almonds</h3>
+
+<p>
+
+Premium California almonds rich in nutrition.
+
+</p>
+
+<div class="price">
+
+₹420
+
+</div>
+
+<button
+
+class="gold-btn"
+
+onclick="addToCart('Almonds',420,'images/almond.jpg')">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Cashew -->
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="images/cashew.jpg">
+
+</div>
+
+<div class="product-info">
+
+<h3>Cashews</h3>
+
+<p>
+
+Crunchy premium cashews packed with goodness.
+
+</p>
+
+<div class="price">
+
+₹480
+
+</div>
+
+<button
+
+class="gold-btn"
+
+onclick="addToCart('Cashews',480,'images/cashew.jpg')">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Walnut -->
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="images/walnut.jpg">
+
+</div>
+
+<div class="product-info">
+
+<h3>Walnuts</h3>
+
+<p>
+
+Healthy omega-3 rich walnuts.
+
+</p>
+
+<div class="price">
+
+₹520
+
+</div>
+
+<button
+
+class="gold-btn"
+
+onclick="addToCart('Walnuts',520,'images/walnut.jpg')">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SEEDS ================= -->
+
+<section class="section light" id="seeds">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>Seeds Collection</h2>
+
+<p>
+
+Superfoods packed with natural nutrition.
+
+</p>
+
+</div>
+
+<div class="products-grid">
+
+<!-- Sunflower -->
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="images/sunflower.jpg" alt="Sunflower Seeds">
+
+</div>
+
+<div class="product-info">
+
+<h3>Sunflower Seeds</h3>
+
+<p>
+
+Crunchy seeds rich in Vitamin E and healthy fats.
+
+</p>
+
+<div class="price">
+
+₹180
+
+</div>
+
+<button class="gold-btn"
+
+onclick="addToCart('Sunflower Seeds',180,'images/sunflower.jpg')">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Pumpkin -->
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="images/pumpkin.jpg" alt="Pumpkin Seeds">
+
+</div>
+
+<div class="product-info">
+
+<h3>Pumpkin Seeds</h3>
+
+<p>
+
+Protein-rich seeds loaded with zinc and magnesium.
+
+</p>
+
+<div class="price">
+
+₹220
+
+</div>
+
+<button class="gold-btn"
+
+onclick="addToCart('Pumpkin Seeds',220,'images/pumpkin.jpg')">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Chia -->
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="images/chia.jpg" alt="Chia Seeds">
+
+</div>
+
+<div class="product-info">
+
+<h3>Chia Seeds</h3>
+
+<p>
+
+Natural source of fibre and Omega-3.
+
+</p>
+
+<div class="price">
+
+₹250
+
+</div>
+
+<button class="gold-btn"
+
+onclick="addToCart('Chia Seeds',250,'images/chia.jpg')">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= HEALTH BLENDS ================= -->
+
+<section class="section" id="featured">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>Health Blends</h2>
+
+<p>
+
+Traditional recipes made for everyday wellness.
+
+</p>
+
+</div>
+
+<div class="products-grid">
+
+<!-- Badam Powder -->
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="images/badam.jpg" alt="Badam Powder">
+
+</div>
+
+<div class="product-info">
+
+<span class="product-tag">
+
+POPULAR
+
+</span>
+
+<h3>Badam Powder</h3>
+
+<p>
+
+Nutritious almond drink mix for the whole family.
+
+</p>
+
+<div class="price">
+
+₹250
+
+</div>
+
+<button class="gold-btn"
+
+onclick="addToCart('Badam Powder',250,'images/badam.jpg')">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Laddu -->
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="images/laddu.jpg" alt="Dry Fruit Laddu">
+
+</div>
+
+<div class="product-info">
+
+<span class="product-tag">
+
+HEALTHY
+
+</span>
+
+<h3>Dry Fruit Laddu</h3>
+
+<p>
+
+Traditional laddus made with premium dry fruits and seeds.
+
+</p>
+
+<div class="price">
+
+₹300
+
+</div>
+
+<button class="gold-btn"
+
+onclick="addToCart('Dry Fruit Laddu',300,'images/laddu.jpg')">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>Sattvic Eats</h3>
+
+<p>
+
+Pure Food.<br>
+
+Calm Living.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="products.html">Products</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Categories</h3>
+
+<ul>
+
+<li>Coffee</li>
+
+<li>Dry Fruits</li>
+
+<li>Seeds</li>
+
+<li>Health Blends</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Follow Us</h3>
+
+<div class="social-icons">
+
+<a href="https://www.instagram.com/sattviceats" target="_blank">
+
+<i class="fab fa-instagram"></i>
+
+</a>
+
+<a href="https://www.facebook.com/" target="_blank">
+
+<i class="fab fa-facebook-f"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 Sattvic Eats. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+
+duration:1000,
+
+once:true
+
+});
+
+</script>

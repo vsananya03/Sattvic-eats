@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shopping Cart | Sattvic Eats</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body class="cart-page-body"></body>
+
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="index.html" class="logo">
+
+<img src="images/logo.jpg" alt="Sattvic Eats">
+
+</a>
+
+<div class="menu-toggle" id="menu-toggle">
+
+<i class="fas fa-bars"></i>
+
+</div>
+
+<ul class="nav-links" id="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="products.html">Products</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li>
+
+<a href="cart.html" class="active">
+
+🛒 Cart (<span id="cart-count">0</span>)
+
+</a>
+
+</li>
+
+<li>
+
+<a href="products.html" class="gold-btn">
+
+Shop Now
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</header>
+
+<!-- ================= CART ================= -->
+
+<section class="section cart-page"></section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>Shopping Cart</h2>
+
+<p>
+
+Review your selected products before checkout.
+
+</p>
+
+</div>
+
+<div id="cart-container" class="glass-card">
+
+<!-- Cart items will appear here -->
+
+</div>
+
+<div class="glass-card" style="margin-top:40px;">
+
+<h3>
+
+Subtotal:
+<span id="cart-total">
+
+₹0
+
+</span>
+
+</h3>
+
+<br>
+
+<div style="display:flex;gap:20px;flex-wrap:wrap;">
+
+<a href="products.html" class="outline-btn">
+
+Continue Shopping
+
+</a>
+
+<button
+
+class="gold-btn"
+
+onclick="checkout()">
+
+Proceed to Checkout
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>Sattvic Eats</h3>
+
+<p>
+
+Pure Food.<br>
+
+Calm Living.
+
+</p>
+
+<p style="margin-top:15px;">
+
+Healthy choices inspired by nature.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="products.html">Products</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="cart.html">Cart</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Categories</h3>
+
+<ul>
+
+<li>Coffee Powder</li>
+
+<li>Dry Fruits</li>
+
+<li>Seeds</li>
+
+<li>Health Blends</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Follow Us</h3>
+
+<div class="social-icons">
+
+<a href="#"><i class="fab fa-instagram"></i></a>
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+
+<a href="#"><i class="fab fa-whatsapp"></i></a>
+
+</div>
+
+<br>
+
+<p>
+
+contact.sattviceats@gmail.com
+
+</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 Sattvic Eats. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<!-- ================= CART SCRIPT ================= -->
+
+<script>
+
+function renderCart(){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const container = document.getElementById("cart-container");
+
+const totalElement = document.getElementById("cart-total");
+
+if(cart.length===0){
+
+container.innerHTML=`
+
+<div style="text-align:center;padding:50px;">
+
+<h3>Your cart is empty 🛒</h3>
+
+<br>
+
+<a href="products.html" class="gold-btn">
+
+Shop Now
+
+</a>
+
+</div>
+
+`;
+
+totalElement.innerHTML="₹0";
+
+return;
+
+}
+
+let total=0;
+
+container.innerHTML="";
+
+cart.forEach((item,index)=>{
+
+total+=item.price*(item.quantity||1);
+
+container.innerHTML+=`
+
+<div class="cart-item">
+
+<img src="${item.image}" 
+style="
+width:180px;
+height:180px;
+max-width:180px;
+object-fit:cover;
+border-radius:18px;
+display:block;
+">
+
+<div class="cart-details">
+
+<h3>${item.name}</h3>
+
+<p>₹${item.price}</p>
+
+<div class="qty-box" style="
+display:flex;
+align-items:center;
+gap:15px;
+margin-top:15px;
+">
+
+<button 
+style="
+width:45px;
+height:45px;
+font-size:25px;
+border-radius:50%;
+cursor:pointer;
+"
+onclick="changeQty(${index},-1)">
+−
+</button>
+
+
+<span style="
+font-size:20px;
+font-weight:600;
+min-width:30px;
+text-align:center;
+">
+${item.quantity||1}
+</span>
+
+
+<button
+style="
+width:40px;
+height:40px;
+font-size:25px;
+border-radius:50%;
+cursor:pointer;
+"
+onclick="changeQty(${index},1)">
++
+</button>
+
+</div>
+
+</div>
+
+<button 
+class="remove-btn"
+
+style="
+padding:14px 30px;
+font-size:16px;
+font-weight:600;
+border:none;
+border-radius:30px;
+background:#0A6623;
+color:white;
+cursor:pointer;
+transition:.3s;
+"
+
+onclick="removeItem(${index})">
+
+Remove
+
+</button>
+
+</div>
+
+`;
+
+});
+
+totalElement.innerHTML="₹"+total;
+
+}
+
+function changeQty(index,value){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+cart[index].quantity=(cart[index].quantity||1)+value;
+
+if(cart[index].quantity<=0){
+
+cart.splice(index,1);
+
+}
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+renderCart();
+
+}
+
+function removeItem(index){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+cart.splice(index,1);
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+renderCart();
+
+}
+
+function checkout(){
+
+alert("Thank you for shopping with Sattvic Eats! 🌿");
+
+localStorage.removeItem("cart");
+
+renderCart();
+
+}
+
+renderCart();
+
+</script>
+
+
+
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
+
